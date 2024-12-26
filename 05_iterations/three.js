@@ -1,8 +1,8 @@
 const coding= ["js", "cpp" , "py" , "java" , "ruby" , "swift" , "kotlin"];
 
-// coding.forEach( function (values) {
-//     console.log(values);
-// } )
+coding.forEach( function (values) {
+    console.log(values);
+} )
 
 
 // coding.forEach(  (val) => {
@@ -24,22 +24,22 @@ const coding= ["js", "cpp" , "py" , "java" , "ruby" , "swift" , "kotlin"];
 // } )
 
 
-const exp = [
-    {
-        langname : "cpp",
-        yos : "2023-24"
-    },
-    {
-        langname: "Html",
-        yos: "2022-23"
-    },
-    {
-        langname:"Js",
-        yos:"2024-25"
-    }
-]
+// const exp = [
+//     {
+//         langname : "cpp",
+//         yos : "2023-24"
+//     },
+//     {
+//         langname: "Html",
+//         yos: "2022-23"
+//     },
+//     {
+//         langname:"Js",
+//         yos:"2024-25"
+//     }
+// ]
 
-exp.forEach( (i)=>{
-    console.log(i.langname);
+// exp.forEach( (i)=>{
+//     console.log(i.langname);
     
-})
+// })
