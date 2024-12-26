@@ -25,8 +25,6 @@
 
 //ternary operator
 
-const iceTeaPrice = 100;
+// const iceTeaPrice = 100;
 
-iceTeaPrice > 80 ? console.log("expensive") :console.log( "nice, cheap");
-
-
+// iceTeaPrice > 80 ? console.log("expensive") :console.log( "nice, cheap");
