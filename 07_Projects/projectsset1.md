@@ -49,3 +49,16 @@ frm.addEventListener('submit', function (e) {
 
 
 ```
+
+## project 3
+``` javascript
+
+const clock = document.querySelector("#clock")
+setInterval(function(){
+  
+  let t = new Date();
+  clock.innerHTML = t.toLocaleTimeString()
+} , 1000)
+
+
+```
