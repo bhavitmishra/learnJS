@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai aur Codee|| DOM</title>
+</head>
+<body style="background-color: black; color: white;">
+    <ul class="language">
+        <li>JavaScript</li>
+    </ul>
+</body>
+<script>
+    function addele(text){
+        const li = document.createElement("li");
+        li.textContent = `${text}`;
+        document.querySelector('ul').appendChild(li);
+    }
+    addele("code em")
+    
+    //Optimized way
+    
+    function addoptiele(ele) {
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(ele));
+        document.querySelector(".language").appendChild(li)
+    }
+    addoptiele("real good")
+
+    //Edit
+
+    const tbe = document.querySelector("li:nth-child(1)")
+    // tbe.innerHTML = "OHHHH"
+    const li = document.createElement('li');
+    li.appendChild(document.createTextNode("OHHH"));
+    tbe.replaceWith(li)
+
+    //remove
+
+    const tbd = document.querySelector("li:last-child")
+    tbd.remove();
+</script>
+</html>
