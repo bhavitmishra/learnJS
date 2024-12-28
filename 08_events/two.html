@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai aur Code </title>
+</head>
+<body>
+    <h1>Bhavit G.O.A.T Mishra</h1>
+    <button id="stop">Stop</button>
+    <button id="play">Commence</button>
+</body>
+<script>
+   const playbut = document.querySelector("#play");
+   const stopbut = document.querySelector("#stop");
+
+    function texter() {
+        const text = document.querySelector('h1');
+        text.innerHTML = "Come On Bruh"
+    }
+    function texti(){
+        const text = document.querySelector('h1');
+        text.innerHTML = "this is easy"
+    }
+    const plaa = function pla(){
+    const comm = setInterval(texter , 1000)
+    const aff = setInterval(texti , 3000)
+    stopbut.addEventListener('click' , function(){
+        clearInterval(comm);
+        clearInterval(aff);
+    })
+   }
+   playbut.addEventListener('click' , plaa);
+</script>
+</html>
