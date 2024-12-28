@@ -1,7 +1,7 @@
 # projects related to DOM
 
 ## project link
-[Click here](https://stackblotz.com/edit/dom-project-chaiaurcode?file=index.html) 
+[Click here](https://stackblitz.com/edit/dom-project-chaiaurcode?file=index.html) 
 
 # Solution code
 
@@ -67,90 +67,91 @@ setInterval(function(){
 
 ``` javascript
 
-const form = document.querySelector('form');
-let prevarr = [];
-let randNum = Math.floor(Math.random()*100 + 1);
-let rem = 10
-let bool = false
-
-form.addEventListener('submit' , function(e){
-  e.preventDefault();
-  if(!bool)
-  {
-    const val = parseInt(document.querySelector('#guessField').value)
-    verify(val);
-    // document.querySelector('#guessField').value = '';
-    if(rem===0) 
+    // document.querySelector(".lowOrHigh").setAttribute = '';
+    const form = document.querySelector('form');
+    let prevarr = [];
+    let randNum = Math.floor(Math.random()*100 + 1);
+    let rem = 10
+    let bool = false
+    
+    form.addEventListener('submit' , function(e){
+      e.preventDefault();
+      if(!bool)
+      {
+        const val = parseInt(document.querySelector('#guessField').value)
+        verify(val);
+        // document.querySelector('#guessField').value = '';
+        if(rem===0) 
+        {
+          // alert("you failed")
+          // document.querySelector('#subt').disabled = true;
+          endgame();
+        }
+      }
+    })
+    
+    function verify(val) {
+      if(val < 1 || val ==='' || isNaN(val) || val>100) {alert("Enter valid No.");
+    }
+    else {--rem; 
+      checker(val);}
+    }
+    
+    function checker(val)
     {
-      // alert("you failed")
-      // document.querySelector('#subt').disabled = true;
-      endgame();
+      if(val == randNum)
+        {
+          alert("You guessed it correctly");
+          bool = true
+          endgame();
+        }
+        else if(val < randNum)
+        {
+          prevarr.push(val);
+          displayer("low" , rem);
+        }
+        else{
+          prevarr.push(val);
+          displayer("high" , rem)
+        }
     }
-  }
-})
-
-function verify(val) {
-  if(val < 1 || val ==='' || isNaN(val) || val>100) {alert("Enter valid No.");
-}
-else {--rem; 
-  checker(val);}
-}
-
-function checker(val)
-{
-  if(val == randNum)
+    
+    function displayer(msg , rem)
     {
-      alert("You guessed it correctly");
-      bool = true
-
+      if(msg === 'low'){
+        document.querySelector('.guesses').innerHTML = prevarr;
+            document.querySelector('.lowOrHi').innerHTML = "low"
+            document.querySelector('.lastResult').innerHTML = rem
+      }
+      else{
+        document.querySelector('.guesses').innerHTML = prevarr;
+          document.querySelector('.lowOrHi').innerHTML = "high"
+          document.querySelector('.lastResult').innerHTML = rem
+      }
     }
-    else if(val < randNum)
-    {
-      prevarr.push(val);
-      displayer('a', prevarr , "low" , rem);
+    function endgame(){
+      document.querySelector('#guessField').value = '';
+      document.querySelector('#guessField').setAttribute('disabled' , '');
+      let np = document.createElement('button');
+      np.innerHTML = "Start a new Game";
+      document.querySelector('.resultParas').appendChild(np);
+      bool = true;
+      newgame(np);
+      document.querySelector(".lowOrHi").innerHTML=''
     }
-    else{
-      prevarr.push(val);
-      displayer('b' , prevarr, "high" , rem)
+    function newgame(np){
+      np.addEventListener('click' , function(e){
+        document.querySelector(".lastResult").innerHTML = 10;
+        document.querySelector(".guesses").innerHTML = '';
+    
+        prevarr = [];
+        randNum = Math.floor(Math.random()*100 + 1);
+        rem = 10
+        document.querySelector('.resultParas').removeChild(np);
+        document.querySelector('#guessField').removeAttribute("disabled");
+        bool = false
+      })
     }
-}
-
-function displayer(cond , arr , msg , rem)
-{
-  if('a'){
-    document.querySelector('.guesses').innerHTML = prevarr;
-        document.querySelector('.lowOrHi').innerHTML = "low"
-        document.querySelector('.lastResult').innerHTML = rem
-  }
-  else{
-    document.querySelector('.guesses').innerHTML = prevarr;
-      document.querySelector('.lowOrHi').innerHTML = "high"
-      document.querySelector('.lastResult').innerHTML = rem
-  }
-}
-function endgame(){
-  document.querySelector('#guessField').value = '';
-  document.querySelector('#guessField').setAttribute('disabled' , '');
-  let np = document.createElement('button');
-  np.innerHTML = "Start a new Game";
-  document.querySelector('.resultParas').appendChild(np);
-  bool = true;
-  newgame(np);
-}
-function newgame(np){
-  np.addEventListener('click' , function(e){
-    document.querySelector(".lastResult").innerHTML = 10;
-    document.querySelector(".guesses").innerHTML = '';
-    // document.querySelector(".lowOrHigh").innerHTML=''
-
-    prevarr = [];
-    randNum = Math.floor(Math.random()*100 + 1);
-    rem = 10
-    document.querySelector('.resultParas').removeChild(np);
-    document.querySelector('#guessField').removeAttribute("disabled");
-    bool = false
-  })
-}
 
 
 ```
