@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>leetcode stats</title>
+</head>
+<body style="background-color: rgb(32, 22, 22);">
+    
+    <div class="container" style="background-color: #515151; padding: 50px; height: 350px; width: 200px; ; margin-left: auto; margin-right: auto;" >
+        <div class="searchbox">
+
+            <h2>Enter username</h2>
+            <input class="box" type="text" , placeholder="Enter username">
+    <button class=".ser">Search</button>
+        </div>
+        <div class="progress">
+            <p class="easy"></p>
+            <p class="med"></p>
+            <p class="hard"></p>
+        </div>
+    </div>
+    <script>
+        const button = document.querySelector('button');
+        const usern = document.querySelector('.box')
+        button.addEventListener('click' , (e)=>{
+            // e.preventDefault();
+            const usernam = usern.value;
+            button.style.backgroundColor = 'black'
+            // const p = document.querySelector('')
+            // p.innerHTML = "Searching"
+            getus(usernam);
+            // console.log('data' , pdata);
+            
+            // document.querySelector('.easy').innerHTML = `${data}`
+            
+        })
+        
+        async function getus(username) {
+            const todo = await fetch(`https://leetcode-stats-api.herokuapp.com/${username}`)
+            const data = await todo.json();
+            
+            // button.disabled();
+
+            dispd(data);
+        }
+        function dispd(pdata){
+            document.querySelector('.easy').innerHTML = `Total No. of Easy Solved" ${pdata.easySolved}`;
+            document.querySelector('.med').innerHTML = `Total No. of Easy Solved" ${pdata.mediumSolved}`;
+            document.querySelector('.hard').innerHTML = `Total No. of Easy Solved" ${pdata.hardSolved}`;
+            
+        }
+    </script>
+</body>
+</html>
