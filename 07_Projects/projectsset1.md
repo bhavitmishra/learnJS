@@ -155,3 +155,53 @@ setInterval(function(){
 
 
 ```
+## project 5
+
+``` javascript
+
+console.log('Project 5');
+
+const insert = document.querySelector('#insert')
+
+window.addEventListener('keydown' , (e)=>{
+  insert.innerHTML = `<table>
+                      <tr><th>Key</th> <th>Code</th></tr>
+                      <tr><td>${e.key==' ' ? "space":e.key}</td> <td>${e.code}</td></tr>
+                      </table>`
+})
+
+
+```
+
+## project 6
+``` javascript  
+
+    const start = document.querySelector('#start')
+const stop = document.querySelector('#stop')
+const hex = "0123456789ABCDEF"
+function pla(){
+  const body = document.querySelector('body');
+  function gen(){
+    let ans = '';
+    for(let i = 0 ; i < 6 ; i++)
+    {
+      const rand = Math.floor(Math.random()*16);
+      ans+=hex[rand];
+    }
+    return ans;
+  }
+  console.log(gen())
+  let intt  = setInterval(function(){
+    body.style.backgroundColor = '#' + (gen());
+  },1000)
+
+  stop.addEventListener('click', ()=>{
+    clearInterval(intt);
+    intt = null;
+  })
+}
+start.addEventListener('click' , pla)
+
+
+
+```
